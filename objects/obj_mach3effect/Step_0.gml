@@ -1,0 +1,2 @@
+if ((obj_player.state != 76) && ((obj_player.state != 57) && ((obj_player.state != 28) && ((obj_player.state != 21) && ((obj_player.state != 26) && ((obj_player.state != 29) && ((obj_player.state != 23) && ((obj_player.state != 19) && (obj_player.state != 49)))))))))
+    instance_destroy();

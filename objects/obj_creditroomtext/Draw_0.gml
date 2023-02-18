@@ -1,0 +1,15 @@
+font = font_add_sprite_ext(spr_font, "ABCDEFGHIJKLMNOPQRSTUVWXYZ!.1234567890:", 1, 0);
+draw_set_font(font);
+draw_set_halign(fa_center);
+draw_set_color(c_white);
+draw_text_transformed(460, 32, "THANKS FOR PLAYING THIS DEMO 1 DECOMPILE!", 0.6, 0.6, 0);
+draw_text_transformed(460, 64, "GAME AND ANIMATIONS BY PIZZA TOWER GUY", 0.6, 0.6, 0);
+draw_text_transformed(460, 96, "MUSIC AND SOUNDS BY", 0.6, 0.6, 0);
+draw_text_transformed(460, 128, "MR SAUCEMAN", 0.6, 0.6, 0);
+draw_text_transformed(460, 160, "FROSTIX", 0.6, 0.6, 0);
+draw_text_transformed(460, 192, "DIM WIDDY", 0.6, 0.6, 0);
+draw_text_transformed(460, 224, "NITROSPARXX", 0.6, 0.6, 0);
+draw_text_transformed(460, 256, "POST ELVIS", 0.6, 0.6, 0);
+draw_text_transformed(460, 288, "HUD RECREATIONS BY GANGSTA LUIGI", 0.6, 0.6, 0);
+draw_text_transformed(460, 320, "DECOMPILED BY MINEKEN", 0.6, 0.6, 0);
+draw_text_transformed(460, 352, "PRESS START AND SELECT RETRY TO GO BACK TO THE TITLE SCREEN", 0.6, 0.6, 0);
