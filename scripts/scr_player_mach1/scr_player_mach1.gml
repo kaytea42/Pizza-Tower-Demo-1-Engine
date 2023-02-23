@@ -19,7 +19,7 @@ function scr_player_mach1() {
 	machhitAnim = 0;
 	crouchslideAnim = 1;
 	hsp = floor((xscale * movespeed));
-	if (grounded && ((xscale == 1) && (move == -1)))
+	if (place_meeting(x, (y + 1), obj_collisionparent) && ((xscale == 1) && (move == -1)))
 	{
 	    momemtum = 0;
 	    mach2 = 0;
@@ -27,7 +27,7 @@ function scr_player_mach1() {
 	    image_index = 0;
 	    xscale = -1;
 	}
-	if (grounded && ((xscale == -1) && (move == 1)))
+	if (place_meeting(x, (y + 1), obj_collisionparent) && ((xscale == -1) && (move == 1)))
 	{
 	    momemtum = 0;
 	    mach2 = 0;
@@ -35,7 +35,7 @@ function scr_player_mach1() {
 	    image_index = 0;
 	    xscale = 1;
 	}
-	if grounded
+	if place_meeting(x, (y + 1), obj_collisionparent)
 	{
 	    if (mach2 < 35)
 	        mach2++;
@@ -46,7 +46,7 @@ function scr_player_mach1() {
 	    }
 	}
 	sprite_index = spr_player_mach1
-	if (!grounded)
+	if (!place_meeting(x, (y + 1), obj_collisionparent))
 	{
 	    sprite_index = spr_player_airdash1;
 	    momemtum = 1;
@@ -54,7 +54,7 @@ function scr_player_mach1() {
 	    jumpAnim = 0;
 	    image_index = 0;
 	}
-	if ((!key_attack) && grounded)
+	if ((!key_attack) && place_meeting(x, (y + 1), obj_collisionparent))
 	{
 	    state = 0;
 	    image_index = 0;
@@ -67,7 +67,7 @@ function scr_player_mach1() {
 	    mach2 = 0;
 	}
 	image_speed = 0.45;
-	if (key_jump && (grounded && key_attack))
+	if (key_jump && (place_meeting(x, (y + 1), obj_collisionparent) && key_attack))
 	{
 	    scr_sound(sound_jump);
 	    sprite_index = spr_player_airdash1;

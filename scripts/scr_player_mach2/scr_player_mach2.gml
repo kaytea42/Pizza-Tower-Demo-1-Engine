@@ -7,7 +7,7 @@ function scr_player_mach2() {
 	move = (key_right + key_left);
 	movespeed = 10;
 	crouchslideAnim = 1;
-	if grounded
+	if place_meeting(x, (y + 1), obj_collisionparent)
 	{
 	    if (machpunchAnim == 0)
 	    {
@@ -36,16 +36,16 @@ function scr_player_mach2() {
 	}
 	else
 	    sprite_index = spr_player_mach2jump;
-	if (!grounded)
+	if (!place_meeting(x, (y + 1), obj_collisionparent))
 	    machpunchAnim = 0;
-	if (!grounded)
+	if (!place_meeting(x, (y + 1), obj_collisionparent))
 	{
 	    if ((move == -1) && (xscale == 1))
 	        movespeed = 8;
 	    if ((move == 1) && (xscale == -1))
 	        movespeed = 8;
 	}
-	if grounded
+	if place_meeting(x, (y + 1), obj_collisionparent)
 	{
 	    if (mach2 < 100)
 	        mach2++;
@@ -64,28 +64,28 @@ function scr_player_mach2() {
 	}
 	if key_jump
 	    input_buffer_jump = 0;
-	if ((!key_attack) && grounded)
+	if ((!key_attack) && place_meeting(x, (y + 1), obj_collisionparent))
 	{
 	    sprite_index = spr_player_machslidestart;
 	    state = 57;
 	    image_index = 0;
 	    mach2 = 0;
 	}
-	if (((move == -1) && (xscale == 1)) && grounded)
+	if (((move == -1) && (xscale == 1)) && place_meeting(x, (y + 1), obj_collisionparent))
 	{
 	    sprite_index = spr_player_machslideboost;
 	    state = 57;
 	    image_index = 0;
 	    mach2 = 35;
 	}
-	if (((move == 1) && (xscale == -1)) && grounded)
+	if (((move == 1) && (xscale == -1)) && place_meeting(x, (y + 1), obj_collisionparent))
 	{
 	    sprite_index = spr_player_machslideboost;
 	    state = 57;
 	    image_index = 0;
 	    mach2 = 35;
 	}
-	if (key_down && grounded)
+	if (key_down && place_meeting(x, (y + 1), obj_collisionparent))
 	{
 	    sprite_index = spr_player_crouchslip;
 	    machhitAnim = 0;
@@ -96,41 +96,50 @@ function scr_player_mach2() {
 	    vsp /= 2;
 	    jumpstop = 1;
 	}
-	if (grounded && (vsp > 0))
+	if (place_meeting(x, (y + 1), obj_collisionparent) && (vsp > 0))
 	    jumpstop = 0;
-	if ((input_buffer_jump < 8) && (grounded && ((!((move == 1) && (xscale == -1))) && ((!((move == -1) && (xscale == 1))) && key_attack))))
+	if ((input_buffer_jump < 8) && (place_meeting(x, (y + 1), obj_collisionparent) && ((!((move == 1) && (xscale == -1))) && ((!((move == -1) && (xscale == 1))) && key_attack))))
 	{
 	    scr_sound(sound_jump);
 	    vsp = -9;
 	}
-	if grounded
+	if place_meeting(x, (y + 1), obj_collisionparent)
 	{
-	    if ((scr_solid((x + 1), y) && (xscale == 1)) && (!place_meeting((x + 1), y, obj_slopes)))
+	    if (place_meeting((x + 1), y, obj_collisionparent) && xscale == 1 && (!(place_meeting((x + 1), y, obj_slopes))))
 	    {
-	        movespeed = 0
-	        state = 58
-	        hsp = -2.5
-	        vsp = -3
-	        mach2 = 0
-	        image_index = 0
-	        instance_create((x + 10), (y + 10), obj_bumpeffect)
-			sprite_index = spr_player_bump;
+	        scr_sound(sound_enemyslap);
+	        movespeed = 0;
+	        state = 58;
+	        hsp = -2.5;
+	        vsp = -3;
+	        mach2 = 0;
+	        image_index = 0;
+	        instance_create((x + 10), (y + 10), obj_bumpeffect);
 	    }
-	    if ((scr_solid((x - 1), y) && (xscale == -1)) && (!place_meeting((x - 1), y, obj_slopes)))
+	    if (place_meeting((x - 1), y, obj_collisionparent) && xscale == -1 && (!(place_meeting((x - 1), y, obj_slopes))))
 	    {
-	        movespeed = 0
-	        state = 58
-	        hsp = 2.5
-	        vsp = -3
-	        mach2 = 0
-	        image_index = 0
-	        instance_create((x - 10), (y + 10), obj_bumpeffect)
-			sprite_index = spr_player_bump;
+	        scr_sound(sound_enemyslap);
+	        movespeed = 0;
+	        state = 58;
+	        hsp = 2.5;
+	        vsp = -3;
+	        mach2 = 0;
+	        image_index = 0;
+	        instance_create((x - 10), (y + 10), obj_bumpeffect);
 	    }
 	}
-	if (((!grounded) && (place_meeting((x + hsp), y, obj_wall) && ((!place_meeting((x + hsp), y, obj_destructibles)) && (!place_meeting((x + sign(hsp)), y, obj_slopes))))) || (grounded && (place_meeting((x + hsp), (y - 64), obj_wall) && ((!place_meeting((x + hsp), y, obj_destructibles)) && ((!place_meeting((x + hsp), y, obj_metalblock)) && place_meeting(x, (y + 1), obj_slopes)))))) {
-	    machhitAnim = 0;
-	    state = 3;
+	if (!(place_meeting(x, (y + 1), obj_collisionparent)))
+	{
+	    if (place_meeting((x + 1), y, obj_collisionparent) && xscale == 1 && (!(place_meeting((x + sign(hsp)), y, obj_slopes))))
+	    {
+	        machhitAnim = 0;
+	        state = 3;
+	    }
+	    else if (place_meeting((x - 1), y, obj_collisionparent) && xscale == -1 && (!(place_meeting((x + sign(hsp)), y, obj_slopes))))
+	    {
+	        machhitAnim = 0;
+	        state = 3;
+	    }
 	}
 	if place_meeting(x, (y + 1), obj_onewaywatersolid)
 	{
@@ -139,9 +148,9 @@ function scr_player_mach2() {
 	    instance_create((x - (xscale * 30)), (y + 40), obj_waterdrop);
 	    instance_create((x - (xscale * 30)), (y + 40), obj_waterdrop);
 	}
-	if ((!instance_exists(obj_dashcloud)) && (grounded && (!place_meeting(x, (y + 1), obj_water))))
+	if ((!instance_exists(obj_dashcloud)) && (place_meeting(x, (y + 1), obj_collisionparent) && (!place_meeting(x, (y + 1), obj_water))))
 	    instance_create(x, y, obj_dashcloud);
-	if (key_slap2 && ((shotgunAnim == 1) && ((global.ammo > 0) && (!grounded))))
+	if (key_slap2 && ((shotgunAnim == 1) && ((global.ammo > 0) && (!place_meeting(x, (y + 1), obj_collisionparent)))))
 	{
 	    global.ammo -= 1;
 	    instance_create(x, (y + 80), obj_shotgunbulletdown);

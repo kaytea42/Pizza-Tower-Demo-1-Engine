@@ -4,11 +4,13 @@ if place_meeting(x, (y - 1), obj_player)
 {
     with (obj_player)
     {
-		hsp = 0;
-        movespeed = 0;
-        mach2 = 0;
-        state = 44;
-        sprite_index = spr_player_fall;
+		if !place_meeting(x, y+1, obj_collisionparent) {
+			hsp = 0;
+	        movespeed = 0;
+	        mach2 = 0;
+	        state = 44;
+	        sprite_index = spr_player_fall;
+		}
     }
 	scr_sound(sound_hit);
 	var lay_id = layer_get_id("trapscreen1");

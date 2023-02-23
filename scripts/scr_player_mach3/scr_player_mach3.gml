@@ -8,7 +8,7 @@ function scr_player_mach3() {
 	move = (key_right + key_left);
 	movespeed = 12;
 	crouchslideAnim = 1;
-	if ((input_buffer_jump < 8) && (grounded && ((!((move == 1) && (xscale == -1))) && ((!((move == -1) && (xscale == 1))) && key_attack))))
+	if ((input_buffer_jump < 8) && (place_meeting(x, (y + 1), obj_collisionparent) && ((!((move == 1) && (xscale == -1))) && ((!((move == -1) && (xscale == 1))) && key_attack))))
 	{
 	    scr_sound(sound_jump);
 	    image_index = 0;
@@ -22,11 +22,11 @@ function scr_player_mach3() {
 	    vsp /= 2;
 	    jumpstop = 1;
 	}
-	if (grounded && (vsp > 0))
+	if (place_meeting(x, (y + 1), obj_collisionparent) && (vsp > 0))
 	    jumpstop = 0;
 	if key_jump
 	    input_buffer_jump = 0;
-	if (key_up && grounded)
+	if (key_up && place_meeting(x, (y + 1), obj_collisionparent))
 	{
 	    sprite_index = spr_player_superjumpprep;
 	    state = 51;
@@ -34,7 +34,7 @@ function scr_player_mach3() {
 	    image_index = 0;
 		
 	}
-	if ((!key_attack) && (grounded && (autodash == 0)))
+	if ((!key_attack) && (place_meeting(x, (y + 1), obj_collisionparent) && (autodash == 0)))
 	{
 	    mach2 = 0;
 	    sprite_index = spr_player_machslidestart;
@@ -42,7 +42,7 @@ function scr_player_mach3() {
 	    state = 57;
 	    image_index = 0;
 	}
-	if (((move == -1) && (xscale == 1)) && grounded)
+	if (((move == -1) && (xscale == 1)) && place_meeting(x, (y + 1), obj_collisionparent))
 	{
 	    sprite_index = spr_player_machslideboost3;
 	    flash = 0;
@@ -50,7 +50,7 @@ function scr_player_mach3() {
 	    image_index = 0;
 	    mach2 = 100;
 	}
-	if (((move == 1) && (xscale == -1)) && grounded)
+	if (((move == 1) && (xscale == -1)) && place_meeting(x, (y + 1), obj_collisionparent))
 	{
 	    sprite_index = spr_player_machslideboost3;
 	    flash = 0;
@@ -58,7 +58,7 @@ function scr_player_mach3() {
 	    image_index = 0;
 	    mach2 = 100;
 	}
-	if (key_down && (grounded && (!place_meeting(x, y, obj_dashpad))))
+	if (key_down && (place_meeting(x, (y + 1), obj_collisionparent) && (!place_meeting(x, y, obj_dashpad))))
 	{
 	    instance_create(x, y, obj_jumpdust);
 	    flash = 0;
@@ -78,7 +78,7 @@ function scr_player_mach3() {
 	        image_speed = 0.35;
 	        with (obj_baddie)
 	        {
-	            if point_in_rectangle(x, y, view_xport[0], view_yport[0], (view_xport[0] + view_wport[0]), (view_yport[0] + view_hport[0]))
+	            if point_in_rectangle(x, y, view_xview[0], view_yview[0], (view_xview[0] + view_wview[0]), (view_yview[0] + view_hview[0]))
 	            {
 	                stun = 1;
 	                alarm[0] = 200;
@@ -117,9 +117,18 @@ function scr_player_mach3() {
 	        instance_create((x - 10), (y + 10), obj_bumpeffect);
 	    }
 	}
-	if (((!grounded) && (place_meeting((x + hsp), y, obj_wall) && ((!place_meeting((x + hsp), y, obj_destructibles)) && ((!place_meeting((x + hsp), y, obj_metalblock)) && (!place_meeting((x + sign(hsp)), y, obj_slopes)))))) || (grounded && (place_meeting((x + hsp), (y - 32), obj_wall) && ((!place_meeting((x + hsp), y, obj_destructibles)) && ((!place_meeting((x + hsp), y, obj_metalblock)) && place_meeting(x, (y + 1), obj_slopes)))))) {
-		machhitAnim = 0;
-		state = 3;
+	if (!(place_meeting(x, (y + 1), obj_collisionparent)))
+	{
+	    if (place_meeting((x + 1), y, obj_collisionparent) && xscale == 1 && (!(place_meeting((x + sign(hsp)), y, obj_slopes))))
+	    {
+	        machhitAnim = 0;
+	        state = 3;
+	    }
+	    else if (place_meeting((x - 1), y, obj_collisionparent) && xscale == -1 && (!(place_meeting((x + sign(hsp)), y, obj_slopes))))
+	    {
+	        machhitAnim = 0;
+	        state = 3;
+	    }
 	}
 	if place_meeting(x, (y + 1), obj_onewaywatersolid)
 	{
@@ -130,9 +139,9 @@ function scr_player_mach3() {
 	}
 	if (!instance_exists(obj_chargeeffect))
 	    instance_create(x, y, obj_chargeeffect)
-	if ((!instance_exists(obj_superdashcloud)) && (grounded && (!place_meeting(x, (y + 1), obj_water))))
+	if ((!instance_exists(obj_superdashcloud)) && (place_meeting(x, (y + 1), obj_collisionparent) && (!place_meeting(x, (y + 1), obj_water))))
 	    instance_create(x, y, obj_superdashcloud)
-	if (key_slap2 && ((shotgunAnim == 1) && ((global.ammo > 0) && (!grounded))))
+	if (key_slap2 && ((shotgunAnim == 1) && ((global.ammo > 0) && (!place_meeting(x, (y + 1), obj_collisionparent)))))
 	{
 	    global.ammo -= 1
 	    instance_create(x, (y + 80), obj_shotgunbulletdown)
