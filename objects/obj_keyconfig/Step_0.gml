@@ -64,27 +64,11 @@ else if (remapphase == 6)
 }
 else if (remapphase == 7)
 {
-    sprite_index = spr_presstaunt;
-    if keyboard_check_pressed(vk_anykey)
-    {
-        global.key_taunt = keyboard_key;
-        remapphase += 1;
-    }
-}
-else if (remapphase == 8)
-{
-    sprite_index = spr_pressshoot;
-    if keyboard_check_pressed(vk_anykey)
-    {
-        global.key_shoot = keyboard_key;
-        remapphase += 1;
-    }
-}
-else if (remapphase == 9)
-{
     sprite_index = spr_ok;
-    if key_jump instance_destroy();
-    if key_slap remapphase = 0;
+    if (key_jump)
+		instance_destroy();
+    if (key_slap)
+		remapphase = 0;
 	obj_menuselections.timed = 1;
 }
 ini_open("saveData.ini");

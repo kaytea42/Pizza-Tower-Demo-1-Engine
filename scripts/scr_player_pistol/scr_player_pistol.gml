@@ -24,7 +24,7 @@ function scr_player_pistol() {
 	    image_index = 2;
 	    state = 2;
 	}
-	else if (!grounded && ((vsp > 0) && (sprite_index == spr_player_pistolair)))
+	else if (!place_meeting(x, (y + 1), obj_collisionparent) && ((vsp > 0) && (sprite_index == spr_player_pistolair)))
 	{
 	    sprite_index = spr_player_shootslide;
 	    state = 54;
@@ -102,12 +102,12 @@ function scr_player_pistol() {
 	    ID.hspeed = (xscale * 15);
 	    shoot = 0;
 	}
-	if (key_shoot && ((!grounded && (floor(image_index) == (image_number - 1)))))
+	if (key_shoot && ((!place_meeting(x, (y + 1), obj_collisionparent) && (floor(image_index) == (image_number - 1)))))
 	{
 	    image_index = 0;
 	    shoot = 1;
 	}
-	if ((!grounded) && (sprite_index != spr_player_pistolair))
+	if ((!place_meeting(x, (y + 1), obj_collisionparent)) && (sprite_index != spr_player_pistolair))
 	    sprite_index = spr_player_pistolair;
 	if (floor(image_index) != (image_number - 1))
 	    image_speed = 0.45;

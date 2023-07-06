@@ -9,7 +9,10 @@
     "name": "Solids",
     "path": "folders/Objects/Level Structure/Solids.yy",
   },
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "obj_enemiesbumpable",
+    "path": "objects/obj_enemiesbumpable/obj_enemiesbumpable.yy",
+  },
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,
@@ -30,5 +33,5 @@
     "path": "sprites/sprite197/sprite197.yy",
   },
   "spriteMaskId": null,
-  "visible": false,
+  "visible": true,
 }

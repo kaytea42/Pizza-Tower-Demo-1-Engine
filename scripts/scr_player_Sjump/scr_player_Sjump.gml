@@ -19,7 +19,7 @@ function scr_player_Sjump(){
 	    hsp = (xscale * a);
 	    vsp = 0;
 	}
-	if (scr_solid(x, (y - 1)) && ((!place_meeting(x, (y - 1), obj_destructibles)) && ((!place_meeting((x + sign(hsp)), y, obj_slopes)) && (!place_meeting((x - sign(hsp)), y, obj_slopes)))))
+	if (place_meeting(x, (y - 1), obj_collisionparent) && ((!place_meeting(x, (y - 1), obj_destructibles)) && ((!place_meeting((x + sign(hsp)), y, obj_slopes)) && (!place_meeting((x - sign(hsp)), y, obj_slopes)))))
 	{
 	    scr_sound(sound_enemystomp);
 	    a = 0;
@@ -34,7 +34,7 @@ function scr_player_Sjump(){
 	    }
 	    with (obj_baddie)
 	    {
-	        if point_in_rectangle(x, y, view_xview[0], view_yview[0], (view_xview[0] + view_wview[0]), (view_yview[0] + view_hview[0]))
+	        if point_in_rectangle(x, y, view_xport[0], view_yport[0], (view_xport[0] + view_wport[0]), (view_yport[0] + view_hview[0]))
 	        {
 	            image_index = 0;
 	            state = 79;

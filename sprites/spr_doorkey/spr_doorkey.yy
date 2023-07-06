@@ -103,7 +103,7 @@
             {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"06737361-baab-45d7-99d7-d9791b8479cf","path":"sprites/spr_doorkey/spr_doorkey.yy",},},},"Disabled":false,"id":"d8952f01-8e12-432f-9c3c-00c4f688ac61","IsCreationKey":false,"Key":23.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
-    "visibleRange": {"x":0.0,"y":0.0,},
+    "visibleRange": null,
     "volume": 1.0,
     "xorigin": 0,
     "yorigin": 0,

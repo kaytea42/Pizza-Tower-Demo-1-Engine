@@ -1,9 +1,11 @@
 function scr_player_throw() {
 	scr_getinput();
-	if (windingAnim < 200) windingAnim += 5;
+	if (windingAnim < 200)
+		windingAnim += 5;
 	movespeed = 0;
 	mach2 = 0;
-	if grounded hsp = 0;
+	if place_meeting(x, (y + 1), obj_collisionparent)
+		hsp = 0;
 	jumpAnim = 1;
 	dashAnim = 1;
 	landAnim = 0;

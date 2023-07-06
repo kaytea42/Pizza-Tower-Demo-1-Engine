@@ -1,31 +1,4 @@
 scr_getinput();
-if instance_exists(obj_wall) {
-	with obj_wall
-		visible = global.debug;
-}
-if instance_exists(obj_onewaywall) {
-	with obj_onewaywall
-		visible = global.debug;
-}
-if instance_exists(obj_destructibles) {
-	with obj_destructibles {
-		var lay_id = layer_get_id("Tiles_1");
-		var map_id = layer_tilemap_get_id(lay_id);
-		var data = tilemap_get_at_pixel(map_id, x, y);
-		if data
-			visible = 0;
-		else
-			visible = 1;
-	}
-}
-if instance_exists(obj_metalblock) {
-	with obj_metalblock
-		visible = 1;
-}
-if instance_exists(obj_bombblock) {
-	with obj_bombblock
-		visible = 1;
-}
 with (obj_player) {
     switch state {
         case 0:
@@ -40,9 +13,21 @@ with (obj_player) {
 		case 3:
 			scr_player_climbwall();
    			break;
+        case 4:
+            scr_player_knightpepslopes();
+            break;
 		case 5:
 			scr_player_portal();
    			break;
+        case 9:
+            scr_player_gottreasure();
+            break;
+        case 10:
+            scr_player_knightpep();
+            break;
+        case 11:
+            scr_player_knightpepattack();
+            break;
         case 13:
             scr_player_bombpep();
             break;
@@ -67,6 +52,9 @@ with (obj_player) {
         case 29:
             scr_player_superslam();
             break;
+        case 30:
+            scr_player_skateboard();
+            break;
         case 32:
             scr_player_grab();
             break;
@@ -85,9 +73,15 @@ with (obj_player) {
 		case 37:
 			scr_player_backbreaker();
 			break;
+        case 39:
+            scr_player_pizzathrow();
+            break;
         case 41:
             scr_player_gameover();
             break
+        case 42:
+            scr_player_keyget();
+            break;
         case 43:
             scr_player_tackle();
             break;
@@ -106,6 +100,9 @@ with (obj_player) {
 		case 49:
 			scr_player_Sjump();
 			break;
+        case 50:
+            scr_player_victory();
+            break;
 		case 51:
 			scr_player_Sjumpprep();
 			break;
@@ -151,11 +148,8 @@ with (obj_player) {
 		case 78:
 			scr_player_Sjumpland();
 			break;
-		case "roll":
-			scr_player_tumble();
-			break;
     }
-	if grounded && state != 63 && slammed == 1 {
+	if place_meeting(x, (y + 1), obj_collisionparent) && state != 63 && slammed == 1 {
 		slammed = 0;
 	}
     if (state == 55 && place_meeting(x, (y + 1), obj_collisionparent))

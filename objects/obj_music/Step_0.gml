@@ -44,17 +44,21 @@ if (jingle == 0) {
 if (room == rank_room) {
     currentlyplaying = music_title;
     jingle = 1;
-    if (global.entrance_rank == "s") {
-        if (!audio_is_playing(music_ranks)) audio_play_sound(music_ranks, 1, false);
+    if (global.AT_rank == "s") {
+        if (!audio_is_playing(music_ranks))
+			audio_play_sound(music_ranks, 1, false);
     }
-    else if (global.entrance_rank == "a") {
-        if (!audio_is_playing(music_ranka)) audio_play_sound(music_ranka, 1, false);
+    else if (global.AT_rank == "a") {
+        if (!audio_is_playing(music_ranka))
+			audio_play_sound(music_ranka, 1, false);
     }
-    else if ((global.entrance_rank == "b") || (global.entrance_rank == "c"))  {
-        if (!audio_is_playing(music_rankb)) audio_play_sound(music_rankb, 1, false);
+    else if ((global.AT_rank == "b") || (global.AT_rank == "c"))  {
+        if (!audio_is_playing(music_rankb))
+		audio_play_sound(music_rankb, 1, false);
     }
-    else if (global.entrance_rank == "d") {
-        if (!audio_is_playing(music_rankd)) audio_play_sound(music_rankd, 1, false);
+    else if (global.AT_rank == "d") {
+        if (!audio_is_playing(music_rankd))
+			audio_play_sound(music_rankd, 1, false);
     }
 }
 if (room == timesuproom) {

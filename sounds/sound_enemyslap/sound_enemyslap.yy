@@ -10,14 +10,14 @@
   "bitRate": 192,
   "compression": 0,
   "conversionMode": 0,
-  "duration": 0.548571,
+  "duration": 0.857143,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds/Sounds.yy",
   },
   "preload": true,
   "sampleRate": 44100,
-  "soundFile": "sound_enemyslap.ogg",
+  "soundFile": "sound_enemyslap.wav",
   "type": 0,
   "volume": 0.61,
 }

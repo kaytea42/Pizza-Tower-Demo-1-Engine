@@ -1,6 +1,6 @@
 function scr_player_slap(){
 	scr_getinput();
-	if (!grounded)
+	if (!place_meeting(x, (y + 1), obj_collisionparent))
 	{
 	    move = (key_left + key_right);
 	    fallinganimation++;
@@ -17,13 +17,13 @@ function scr_player_slap(){
 	        movespeed -= 0.05;
 	    if (movespeed == 0)
 	        momemtum = 0;
-	    if (((move == 0) && (momemtum == 0)) || scr_solid((x + hsp), y))
+	    if (((move == 0) && (momemtum == 0)) || place_meeting((x + hsp), y, obj_collisionparent))
 	        movespeed = 0;
 	    if ((move != 0) && (movespeed < 6))
 	        movespeed += 0.25;
 	    if (movespeed > 6)
 	        movespeed -= 0.05;
-	    if (((grounded && (move == 1)) || (scr_solid((x - 1), y) && (move == -1))) && (!place_meeting((x + sign(hsp)), y, obj_slopes)))
+	    if (((place_meeting(x, (y + 1), obj_collisionparent) && (move == 1)) || (place_meeting((x - 1), y, obj_collisionparent) && (move == -1))) && (!place_meeting((x + sign(hsp)), y, obj_slopes)))
 	        movespeed = 0;
 	    if (dir != xscale)
 	    {
@@ -36,7 +36,7 @@ function scr_player_slap(){
 	        momemtum = 0;
 	    }
 	}
-	if ((movespeed > 0) && grounded)
+	if ((movespeed > 0) && place_meeting(x, (y + 1), obj_collisionparent))
 	{
 	    movespeed -= 0.2;
 	    hsp = (xscale * movespeed);
@@ -48,7 +48,7 @@ function scr_player_slap(){
 	    instance_create(x, y, obj_slaphitbox);
 	if ((floor(image_index) == (image_number - 1)) && (slapbuffer == 8))
 	{
-	    if grounded
+	    if place_meeting(x, (y + 1), obj_collisionparent)
 	        state = 0;
 	    else
 	    {
@@ -58,7 +58,7 @@ function scr_player_slap(){
 	}
 	if ((floor(image_index) == (image_number - 1)) && (slapbuffer < 8))
 	{
-	    if grounded
+	    if place_meeting(x, (y + 1), obj_collisionparent)
 	    {
 	        if (slaphand == 1)
 	            sprite_index = spr_player_slap1;
@@ -76,11 +76,11 @@ function scr_player_slap(){
 	    slaphand *= -1;
 	}
 	scr_collideandmove();
-	if ((!instance_exists(obj_slidecloud)) && (grounded && (movespeed > 4)))
+	if ((!instance_exists(obj_slidecloud)) && (place_meeting(x, (y + 1), obj_collisionparent) && (movespeed > 4)))
 	    instance_create(x, y, obj_slidecloud);
-	if (grounded && (sprite_index == spr_player_slap1air))
+	if (place_meeting(x, (y + 1), obj_collisionparent) && (sprite_index == spr_player_slap1air))
 	    sprite_index = spr_player_slap1;
-	if (grounded && (sprite_index == spr_player_slap2air))
+	if (place_meeting(x, (y + 1), obj_collisionparent) && (sprite_index == spr_player_slap2air))
 	    sprite_index = spr_player_slap2;
 	if (move != 0)
 	    xscale = move;

@@ -3,6 +3,26 @@ if (global.panic == 1)
     timestop = 0;
 else
     timestop = 1;
+if (room == AT_room17 || room == AT_room8 || room == AT_room15 || room == AT_room6)
+{
+	/*
+    background_x[0] = (lerp(0, (room_width - background_width[0]), (view_xview[(0 << 0)] / (room_width - view_wview[(0 << 0)]))) / 6);
+    background_y[0] = (lerp(0, (room_height - background_height[0]), (view_yview[(0 << 0)] / (room_height - view_hview[(0 << 0)]))) / 6);
+    background_x[1] = (lerp(0, (room_width - background_width[0]), (view_xview[(0 << 0)] / (room_width - view_wview[(0 << 0)]))) / 8);
+    background_y[1] = (lerp(0, (room_height - background_height[0]), (view_yview[(0 << 0)] / (room_height - view_hview[(0 << 0)]))) / 8);
+    background_xscale[1] = 0.5;
+    background_yscale[1] = 0.5;
+    background_x[2] = (lerp(0, (room_width - background_width[0]), (view_xview[(0 << 0)] / (room_width - view_wview[(0 << 0)]))) / 10);
+    background_y[2] = (lerp(0, (room_height - background_height[0]), (view_yview[(0 << 0)] / (room_height - view_hview[(0 << 0)]))) / 10);
+    background_xscale[2] = 0.8;
+    background_yscale[2] = 0.8;
+    background_x[4] = (lerp(0, (room_width - background_width[0]), (view_xview[(0 << 0)] / (room_width - view_wview[(0 << 0)]))) / 16);
+    background_y[4] = (lerp(0, (room_height - background_height[0]), (view_yview[(0 << 0)] / (room_height - view_hview[(0 << 0)]))) / 16);
+    background_xscale[4] = 0.7;
+    background_yscale[4] = 0.7;
+    background_y[4] = 300;
+	*/
+}
 if (room == timesuproom)
     timestop = 1;
 if instance_exists(obj_player) && ((global.seconds == 0) && ((global.minutes == 0) && ((room != timesuproom) && (!instance_exists(obj_endlevelfade)))))
@@ -37,15 +57,3 @@ if (shake_mag > 0)
     if (shake_mag < 0)
         shake_mag = 0;
 }
-//if room == entrance_1 || room == entrance_2 || room == entrance_3 || room == entrance_4 || room == entrance_5 || room == entrance_6 || room == entrance_7 || room == entrance_8 || room == entrance_9 {
-//	if (global.collect >= 3500)
-//	    global.entrance_rank = "s";
-//	else if (global.collect > 2500)
-//	    global.entrance_rank = "a";
-//	else if (global.collect > 1500)
-//	    global.entrance_rank = "b";
-//	else if (global.collect > 500)
-//	    global.entrance_rank = "c";
-//	else
-//	    global.entrance_rank = "d";
-//}

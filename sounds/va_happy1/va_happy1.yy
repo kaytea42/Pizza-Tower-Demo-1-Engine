@@ -10,14 +10,14 @@
   "bitRate": 192,
   "compression": 0,
   "conversionMode": 0,
-  "duration": 1.723753,
+  "duration": 1.018776,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds/Sounds.yy",
   },
   "preload": true,
   "sampleRate": 44100,
-  "soundFile": "va_happy1",
+  "soundFile": "va_happy1.ogg",
   "type": 0,
   "volume": 1.0,
 }

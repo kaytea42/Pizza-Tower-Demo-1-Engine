@@ -27,8 +27,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "enemies",
-    "path": "folders/Sprites/level structure/enemies.yy",
+    "name": "hazards",
+    "path": "folders/Sprites/level structure/hazards.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

@@ -5,7 +5,7 @@ function scr_player_crouch() {
 	mask_index = spr_crouchmask;
 	turning = 0;
 	movespeed = 4;
-	if ((!grounded) && (!key_jump))
+	if ((!place_meeting(x, (y + 1), obj_collisionparent)) && (!key_jump))
 	{
 	    jumpAnim = 0;
 	    state = 53;
@@ -13,7 +13,7 @@ function scr_player_crouch() {
 	    crouchAnim = 1;
 	    image_index = 0;
 	}
-	if (key_jump && (grounded && ((!place_meeting(x, (y - 16), obj_collisionparent)) && (!scr_solid(x, (y - 32))))))
+	if (key_jump && ((place_meeting(x, (y + 1), obj_collisionparent)) && ((!place_meeting(x, (y - 16), obj_collisionparent)) && (!place_meeting(x, (y - 32), obj_collisionparent)))))
 	{
 	    scr_sound(sound_jump);
 	    vsp = -8;
@@ -23,7 +23,7 @@ function scr_player_crouch() {
 	    crouchAnim = 1;
 	    jumpAnim = 1;
 	}
-	if (grounded && ((!key_down) && ((!scr_solid(x, (y - 16))) && ((!scr_solid(x, (y - 32))) && (!key_jump)))))
+	if ((place_meeting(x, (y + 1), obj_collisionparent)) && ((!key_down) && ((!place_meeting(x, (y - 16), obj_collisionparent))) && ((!place_meeting(x, (y - 32), obj_collisionparent))) && (!key_jump)))
 	{
 	    state = 0;
 	    movespeed = 0;
@@ -60,13 +60,6 @@ function scr_player_crouch() {
 	{
 	    xscale = move;
 	    crouchAnim = 0;
-	}
-	if key_shoot2
-	{
-	    sprite_index = spr_player_crouchshoot;
-	    state = 25;
-	    image_index = 0;
-	    shoot = 1;
 	}
 	image_speed = 0.6;
 	scr_collideandmove();

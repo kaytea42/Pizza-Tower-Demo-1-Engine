@@ -5,7 +5,7 @@ function scr_player_tackle() {
 	mach2 = 0;
 	start_running = 1;
 	alarm[4] = 14;
-	if (grounded && (vsp > 0))
+	if ((place_meeting(x, (y + 1), obj_collisionparent)) && (vsp > 0))
 	    hsp = 0;
 	jumpAnim = 1;
 	dashAnim = 1;

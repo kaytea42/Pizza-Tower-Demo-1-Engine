@@ -15,4 +15,3 @@ obj_player.y = y;
 obj_player.player_y = target_y;
 obj_player.player_x = target_x;
 obj_player.targetRoom = targetRoom;
-

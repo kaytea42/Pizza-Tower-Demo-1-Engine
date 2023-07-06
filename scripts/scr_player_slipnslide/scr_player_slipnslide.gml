@@ -26,7 +26,7 @@ function scr_player_slipnslide(){
 	    mach2 = 0;
 	    image_index = 0;
 	}
-	if (scr_solid((x + 1), y) && (xscale == 1))
+	if (place_meeting((x + 1), y, obj_collisionparent) && (xscale == 1))
 	{
 	    state = 58;
 	    hsp = -2;
@@ -36,7 +36,7 @@ function scr_player_slipnslide(){
 	    instance_create((x + 10), (y + 10), obj_bumpeffect);
 		sprite_index = spr_player_bump;
 	}
-	if (scr_solid((x - 1), y) && (xscale == -1))
+	if (place_meeting((x - 1), y, obj_collisionparent) && (xscale == -1))
 	{
 	    state = 58;
 	    hsp = 2;

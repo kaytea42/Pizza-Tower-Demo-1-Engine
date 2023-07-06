@@ -5,11 +5,11 @@ function scr_player_machroll() {
 	machslideAnim = 1;
 	move = (key_right + key_left);
 	movespeed = 12;
-	if (((!key_down) && ((!scr_solid((x + 27), (y - 32))) && ((!scr_solid((x - 27), (y - 32))) && ((!scr_solid(x, (y - 32))) && (!scr_solid(x, (y - 16))))))) || (!grounded)) {
+	if (((!key_down) && ((!place_meeting((x + 27), (y - 32), obj_collisionparent)) && ((!place_meeting((x - 27), (y - 32), obj_collisionparent)) && ((!place_meeting(x, (y - 32), obj_collisionparent))) && (!place_meeting(x, (y - 16), obj_collisionparent)))))) || (!place_meeting(x, (y + 1), obj_collisionparent)) {
 	    machhitAnim = 1;
 	    state = 56;
 	}
-	if ((scr_solid((x + 1), y) && (xscale == 1)) && (!place_meeting((x + sign(hsp)), y, obj_slopes)))
+	if ((place_meeting((x + 1), y, obj_collisionparent) && (xscale == 1)) && (!place_meeting((x + sign(hsp)), y, obj_slopes)))
 	{
 	    with (obj_camera)
 	    {
@@ -41,7 +41,7 @@ function scr_player_machroll() {
 		sprite_index = spr_player_bump;
 		
 	}
-	if ((scr_solid((x - 1), y) && (xscale == -1)) && (!place_meeting((x + sign(hsp)), y, obj_slopes)))
+	if ((place_meeting((x - 1), y, obj_collisionparent) && (xscale == -1)) && (!place_meeting((x + sign(hsp)), y, obj_slopes)))
 	{
 	    with (obj_camera)
 	    {
@@ -73,10 +73,13 @@ function scr_player_machroll() {
 		sprite_index = spr_player_bump;
 		
 	}
-	if grounded && !scr_solid(x + xscale, y) sprite_index = spr_player_machroll;
-	if (floor(image_index) == 0) flash = 1;
-	else flash = 0;
+	if (place_meeting(x, (y + 1), obj_collisionparent)) && !place_meeting((x + xscale), y, obj_collisionparent)
+		sprite_index = spr_player_machroll;
+	if (floor(image_index) == 0)
+		flash = 1;
+	else
+		flash = 0;
 	if ((!instance_exists(obj_cloudeffect)) && (place_meeting(x, (y + 1), obj_collisionparent) && (!place_meeting(x, (y + 1), obj_water)))) instance_create(x, (y + 43), obj_cloudeffect)
-	image_speed = 0.8;
+		image_speed = 0.8;
 	scr_collideandmove();
 }

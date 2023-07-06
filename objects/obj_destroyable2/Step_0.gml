@@ -35,7 +35,7 @@ if (place_meeting(x, (y + 1), obj_player) && (obj_player.vsp <= 0.5))
 {
     with (obj_player)
     {
-        if (!grounded)
+        if (!place_meeting(x, (y + 1), obj_collisionparent))
         {
             instance_destroy(other.id);
             vsp = 0;

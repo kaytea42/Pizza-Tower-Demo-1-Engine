@@ -14,4 +14,3 @@ if instance_exists(obj_pizzakinpineapple)
     obj_pizzakinpineapple.visible = 1;
 if (!instance_exists(obj_fadeout))
     instance_create(x, y, obj_fadeout);
-

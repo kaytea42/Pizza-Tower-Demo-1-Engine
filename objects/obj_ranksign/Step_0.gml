@@ -1,17 +1,17 @@
 ini_open("saveData.ini");
-global.entrance_rank = ini_read_string("Ranks", "rank", "none");
+global.AT_rank = ini_read_string("Ranks", "rank", "none");
 ini_close();
-if (global.entrance_rank == "none")
-    visible = 0;
+if (global.AT_rank == "none")
+    visible = false;
 else
-    visible = 1;
-if (global.entrance_rank == "s")
+    visible = true;
+if (global.AT_rank == "s")
     image_index = 0;
-if (global.entrance_rank == "a")
+if (global.AT_rank == "a")
     image_index = 1;
-if (global.entrance_rank == "b")
+if (global.AT_rank == "b")
     image_index = 2;
-if (global.entrance_rank == "c")
+if (global.AT_rank == "c")
     image_index = 3;
-if (global.entrance_rank == "d")
+if (global.AT_rank == "d")
     image_index = 4;

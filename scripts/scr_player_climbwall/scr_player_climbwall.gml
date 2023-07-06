@@ -13,14 +13,14 @@ function scr_player_climbwall(){
 	    state = 44;
 	    sprite_index = spr_player_fall;
 	}
-	if (!scr_solid((x + xscale), y))
+	if (!place_meeting((x + xscale), y, obj_collisionparent))
 	{
 	    instance_create(x, y, obj_jumpdust);
 	    vsp = 0;
 	    mach2 = 35;
 	    state = 56;
 	}
-	if ((grounded && (movespeed <= 0)) || (movespeed <= 0))
+	if ((place_meeting(x, (y + 1), obj_collisionparent) && (movespeed <= 0)) || (movespeed <= 0))
 	{
 	    state = 44;
 	    sprite_index = spr_player_fall;

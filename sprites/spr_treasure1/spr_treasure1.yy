@@ -36,8 +36,8 @@
   "nineSlice": null,
   "origin": 4,
   "parent": {
-    "name": "HUD",
-    "path": "folders/Sprites/Peppino sprites/HUD.yy",
+    "name": "collectables",
+    "path": "folders/Sprites/level structure/collectables.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

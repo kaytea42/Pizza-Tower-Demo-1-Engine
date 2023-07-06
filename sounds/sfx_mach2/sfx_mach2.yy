@@ -19,5 +19,5 @@
   "sampleRate": 44100,
   "soundFile": "sfx_mach2.ogg",
   "type": 0,
-  "volume": 1.0,
+  "volume": 0.94,
 }

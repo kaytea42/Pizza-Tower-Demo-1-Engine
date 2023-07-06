@@ -14,7 +14,7 @@ function scr_player_superslam(){
 	    move = 0;
 	    hsp = 0;
 	}
-	if (grounded && ((!place_meeting(x, (y + 1), obj_destructibles)) && ((sprite_index == spr_player_piledriver) && (vsp > 0)))) {
+	if (place_meeting(x, (y + 1), obj_collisionparent) && ((!place_meeting(x, (y + 1), obj_destructibles)) && ((sprite_index == spr_player_piledriver) && (vsp > 0)))) {
 	    sprite_index = spr_player_piledriverland;
 	    jumpAnim = 1;
 	    jumpstop = 0;
@@ -29,7 +29,7 @@ function scr_player_superslam(){
 	    instance_create(x, y, obj_landcloud);
 	    freefallstart = 0;
 	    with (obj_baddie) {
-	        if point_in_rectangle(x, y, view_xview[0], view_yview[0], (view_xview[0] + view_wview[0]), (view_yview[0] + view_hview[0])) {
+	        if point_in_rectangle(x, y, view_xport[0], view_yport[0], (view_xport[0] + view_wport[0]), (view_yport[0] + view_hport[0])) {
 	            image_index = 0;
 	            vsp = -7;
 	            hsp = 0;

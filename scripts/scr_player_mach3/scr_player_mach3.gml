@@ -66,7 +66,7 @@ function scr_player_mach3() {
 	}
 	if place_meeting(x, (y + 1), obj_collisionparent)
 	{
-	    if (place_meeting((x + 1), y, obj_bumpable) && xscale == 1 && (!(place_meeting((x + sign(hsp)), y, obj_slopes))))
+	    if (place_meeting((x + 1), y, obj_collisionparent) && xscale == 1 && (!(place_meeting((x + sign(hsp)), y, obj_slopes))))
 	    {
 	        scr_sound(sound_enemystomp);
 	        with (obj_camera)
@@ -78,7 +78,7 @@ function scr_player_mach3() {
 	        image_speed = 0.35;
 	        with (obj_baddie)
 	        {
-	            if point_in_rectangle(x, y, view_xview[0], view_yview[0], (view_xview[0] + view_wview[0]), (view_yview[0] + view_hview[0]))
+	            if point_in_rectangle(x, y, view_xport[0], view_yport[0], (view_xport[0] + view_wport[0]), (view_yport[0] + view_hview[0]))
 	            {
 	                stun = 1;
 	                alarm[0] = 200;
@@ -97,7 +97,7 @@ function scr_player_mach3() {
 	        image_index = 0;
 	        instance_create((x + 10), (y + 10), obj_bumpeffect);
 	    }
-	    if (place_meeting((x - 1), y, obj_bumpable) && xscale == -1 && (!(place_meeting((x + sign(hsp)), y, obj_slopes))))
+	    if (place_meeting((x - 1), y, obj_collisionparent) && xscale == -1 && (!(place_meeting((x + sign(hsp)), y, obj_slopes))))
 	    {
 	        scr_sound(sound_enemystomp);
 	        with (obj_camera)
@@ -149,19 +149,6 @@ function scr_player_mach3() {
 	    sprite_index = spr_player_shotgunjump1
 	    state = 24
 	    image_index = 0
-	}
-	if key_taunt2 && canTaunt
-	{
-	    scr_sound(sound_taunt);
-	    taunttimer = 20;
-	    tauntstoredmovespeed = movespeed;
-	    tauntstoredsprite = sprite_index;
-	    tauntstoredstate = state;
-		sprite_index = spr_player_taunt;
-	    state = 37;
-	    image_index = random_range(0, (sprite_get_number(spr_player_taunt) - 1));
-	    sprite_index = spr_player_taunt;
-	    instance_create(x, y, obj_taunteffect);
 	}
 	image_speed = 0.4;
 	scr_collideandmove();

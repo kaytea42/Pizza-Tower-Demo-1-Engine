@@ -11,8 +11,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Gimmicks",
-    "path": "folders/Objects/Level Structure/Gimmicks.yy",
+    "name": "Hazards",
+    "path": "folders/Objects/Level Structure/Hazards.yy",
   },
   "parentObjectId": null,
   "persistent": false,

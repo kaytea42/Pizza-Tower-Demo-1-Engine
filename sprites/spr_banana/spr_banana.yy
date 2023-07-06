@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "level gimmicks",
-    "path": "folders/Sprites/level structure/level gimmicks.yy",
+    "name": "hazards",
+    "path": "folders/Sprites/level structure/hazards.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

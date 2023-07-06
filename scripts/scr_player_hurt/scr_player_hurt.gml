@@ -11,7 +11,7 @@ function scr_player_hurt(){
 	bounce = 0;
 	jumpAnim = 1;
 	dashAnim = 1;
-	if grounded
+	if place_meeting(x, (y + 1), obj_collisionparent)
 	    landAnim = 0;
 	else
 	    landAnim = 1;
@@ -27,9 +27,9 @@ function scr_player_hurt(){
 	    obj_hook.hooked = 0;
 	alarm[5] = 2;
 	alarm[7] = 60;
-	if grounded
+	if place_meeting(x, (y + 1), obj_collisionparent)
 	    vsp = -4;
-	if scr_solid((x + hsp), y)
+	if place_meeting((x + hsp), y, obj_collisionparent)
 	    xscale *= -1;
 	image_speed = 0.35;
 	scr_collideandmove();

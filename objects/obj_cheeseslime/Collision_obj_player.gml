@@ -55,14 +55,14 @@ if (state != 92) {
             other.flash = 1;
             if (other.hp == 0) instance_destroy(other.id);
             machpunchAnim = 1;
-            if ((!grounded) && (state != 60) && key_jump) vsp = -10;
+            if ((!place_meeting(x, (y + 1), obj_collisionparent)) && (state != 60) && key_jump) vsp = -10;
         }
         if ((attacking == 1) && (state != 56)) {
             if (state == 76) other.shot = 1;
             image_index = 0;
             instance_destroy(other.id);
             machpunchAnim = 1;
-            if ((!grounded) && (state != 60) && key_jump) vsp = -10;
+            if ((!place_meeting(x, (y + 1), obj_collisionparent)) && (state != 60) && key_jump) vsp = -10;
         }
         if ((attacking == 0) && (((state != 43) && (state != 59)) && ((!(y < other.y)) && ((grabbing == 0) && (other.state != 89))))) {
             if (x != other.x) {

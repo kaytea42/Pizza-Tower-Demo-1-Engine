@@ -39,7 +39,7 @@ function scr_player_Sjumpprep() {
 	crouchAnim = 1;
 	if ((floor(image_index) == (image_number - 1)) && (sprite_index == spr_player_superjumpprep))
 	    sprite_index = spr_player_superjumppreplight;
-	if ((!key_up) && (((sprite_index == spr_player_superjumppreplight) || ((sprite_index == spr_player_superjumpleft) || (sprite_index == spr_player_superjumpright))) && ((!scr_solid(x, (y - 16))) && (!scr_solid(x, (y - 32))))))
+	if ((!key_up) && (((sprite_index == spr_player_superjumppreplight) || ((sprite_index == spr_player_superjumpleft) || (sprite_index == spr_player_superjumpright))) && ((!place_meeting(x, (y - 16), obj_collisionparent))) && (!place_meeting(x, (y - 32), obj_collisionparent))))
 	{
 	    scr_sound(sound_superjump);
 	    instance_create(x, y, obj_explosioneffect);

@@ -26,7 +26,7 @@ if ((floor(hsp) == 0) && (((sprite_index == spr_player_machslideboost) || (sprit
     xscale *= -1
     instance_create(x, y, obj_jumpdust)
 }
-if ((scr_solid((x + 1), y) && (xscale == 1)) && (!place_meeting((x + 1), y, obj_slopes)))
+if ((place_meeting((x + 1), y, obj_collisionparent) && (xscale == 1)) && (!place_meeting((x + 1), y, obj_slopes)))
 {
     movespeed = 0
     state = 58
@@ -38,7 +38,7 @@ if ((scr_solid((x + 1), y) && (xscale == 1)) && (!place_meeting((x + 1), y, obj_
 	sprite_index = spr_player_bump;
 	
 }
-if ((scr_solid((x - 1), y) && (xscale == -1)) && (!place_meeting((x - 1), y, obj_slopes)))
+if ((place_meeting((x - 1), y, obj_collisionparent) && (xscale == -1)) && (!place_meeting((x - 1), y, obj_slopes)))
 {
     movespeed = 0
     state = 58

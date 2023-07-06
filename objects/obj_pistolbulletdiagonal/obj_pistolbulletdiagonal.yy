@@ -12,8 +12,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "FX",
-    "path": "folders/Objects/FX.yy",
+    "name": "effects and particles",
+    "path": "folders/Objects/effects and particles.yy",
   },
   "parentObjectId": {
     "name": "obj_pistolbullet",

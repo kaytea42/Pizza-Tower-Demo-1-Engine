@@ -7,18 +7,8 @@ function scr_player_normal() {
 	    facehurt = 0;
 	}
 	mach2 = 0;
-	if !place_meeting(x, y, obj_movingplat) {
-		move = (key_left + key_right);
-		hsp = (move * movespeed);
-	}
-	else if place_meeting(x, y, obj_movingplat) {
-		if hsp == 0 {
-			hsp = other.id.hspeed;
-		}
-		move = (key_left + key_right);
-		hsp = (move * movespeed);
-		hsp = movespeed + other.id.hspeed;
-	}
+	move = (key_left + key_right);
+	hsp = (move * movespeed);
 	if ((machslideAnim == 0) && ((landAnim == 0) && (shotgunAnim == 0)))
 	{
 	    if (move == 0)
@@ -137,12 +127,12 @@ function scr_player_normal() {
 	    else if ((shotgunAnim == 1) && (sprite_index != spr_player_shotgun))
 	        sprite_index = spr_shotgun_walk;
 	}
-	if (scr_solid((x + sign(hsp)), y) && ((xscale == 1) && ((move == 1) && (!place_meeting((x + 1), y, obj_slopes)))))
+	if (place_meeting((x + sign(hsp)), y, obj_collisionparent) && ((xscale == 1) && ((move == 1) && (!place_meeting((x + 1), y, obj_slopes)))))
 	    movespeed = 0;
-	if (scr_solid((x + sign(hsp)), y) && ((xscale == -1) && ((move == -1) && (!place_meeting((x - 1), y, obj_slopes)))))
+	if (place_meeting((x + sign(hsp)), y, obj_collisionparent) && ((xscale == -1) && ((move == -1) && (!place_meeting((x - 1), y, obj_slopes)))))
 	    movespeed = 0;
 	jumpstop = 0;
-	if (!grounded && (!key_jump))
+	if ((!place_meeting(x, (y + 1), obj_collisionparent)) && (!key_jump))
 	{
 	    if (shotgunAnim == 0)
 	        sprite_index = spr_player_fall;
@@ -152,7 +142,7 @@ function scr_player_normal() {
 	    state = 44;
 	    image_index = 0;
 	}
-	if (key_attack && grounded && ((!(scr_solid((x + 1), y) && ((xscale == 1) && (!place_meeting((x + xscale), y, obj_slopes))))) && (!(scr_solid((x - 1), y) && ((xscale == -1) && (!place_meeting((x + xscale), y, obj_slopes)))))))
+	if (key_attack && (place_meeting(x, (y + 1), obj_collisionparent)) && ((!(place_meeting((x + 1), y, obj_collisionparent) && ((xscale == 1) && (!place_meeting((x + xscale), y, obj_slopes))))) && (!(place_meeting((x - 1), y, obj_collisionparent) && ((xscale == -1) && (!place_meeting((x + xscale), y, obj_slopes)))))))
 	{
 	    sprite_index = spr_player_mach1;
 	    jumpAnim = 1;
@@ -167,7 +157,7 @@ function scr_player_normal() {
 	    vsp = -6;
 	    sprite_index = spr_player_grabmove;
 	}
-	if (key_jump && grounded && (!key_down))
+	if (key_jump && (place_meeting(x, (y + 1), obj_collisionparent)) && (!key_down))
 	{
 	    scr_sound(sound_jump);
 	    if (move == 0)
@@ -182,7 +172,7 @@ function scr_player_normal() {
 	    image_index = 0;
 	    jumpAnim = 1;
 	}
-	if (grounded && ((input_buffer_jump < 8) && ((!key_down) && ((!key_attack) && (vsp > 0)))))
+	if ((place_meeting(x, (y + 1), obj_collisionparent)) && ((input_buffer_jump < 8) && ((!key_down) && ((!key_attack) && (vsp > 0)))))
 	{
 	    scr_sound(sound_jump);
 	    if (move == 0)
@@ -202,7 +192,7 @@ function scr_player_normal() {
 	        instance_create(x, y, obj_landcloud);
 	    freefallstart = 0;
 	}
-	if ((key_down && grounded) || scr_solid(x, (y - 3)))
+	if ((key_down && (place_meeting(x, (y + 1), obj_collisionparent))) || place_meeting(x, (y - 3), obj_collisionparent))
 	{
 	    state = 52;
 	    landAnim = 0;
@@ -252,45 +242,9 @@ function scr_player_normal() {
 	    image_index = 0;
 	    slaphand *= -1;
 	}
-	if canShoot {
-		if (key_shoot2 && (!key_up))
-		{
-		    sprite_index = spr_player_pistol;
-		    state = 25;
-		    image_index = 0;
-		    shoot = 1;
-		}
-		else if (key_up && (key_shoot2 && (move == 0)))
-		{
-		    sprite_index = spr_player_shootup;
-		    state = 25;
-		    image_index = 0;
-		    shoot = 1;
-		}
-		else if (key_up && (key_shoot2 && (move != 0)))
-		{
-		    sprite_index = spr_player_shootdiagonal;
-		    state = 25;
-		    image_index = 0;
-		    shoot = 1;
-		}
-	}
-	if key_taunt2 && canTaunt
-	{
-	    scr_sound(sound_taunt);
-	    taunttimer = 20;
-	    tauntstoredmovespeed = movespeed;
-	    tauntstoredsprite = sprite_index;
-	    tauntstoredstate = state;
-		sprite_index = spr_player_taunt;
-	    state = 37;
-	    image_index = random_range(0, (sprite_get_number(spr_player_taunt) - 1));
-	    sprite_index = spr_player_taunt;
-	    instance_create(x, y, obj_taunteffect);
-	}
-	if ((!instance_exists(obj_cloudeffect)) && grounded && ((move != 0) && ((floor(image_index) == 4) || (floor(image_index) == 10))))
+	if ((!instance_exists(obj_cloudeffect)) && (place_meeting(x, (y + 1), obj_collisionparent)) && ((move != 0) && ((floor(image_index) == 4) || (floor(image_index) == 10))))
 	    instance_create(x, (y + 43), obj_cloudeffect);
-	if ((!instance_exists(obj_cloudeffect)) && grounded && ((move != 0) && ((sprite_index == spr_player_downslopes) || (sprite_index == spr_player_upslopes))))
+	if ((!instance_exists(obj_cloudeffect)) && (place_meeting(x, (y + 1), obj_collisionparent)) && ((move != 0) && ((sprite_index == spr_player_downslopes) || (sprite_index == spr_player_upslopes))))
 	    instance_create(x, (y + 43), obj_cloudeffect);
 	scr_collideandmove();
 }
