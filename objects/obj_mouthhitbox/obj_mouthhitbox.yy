@@ -30,5 +30,5 @@
     "path": "sprites/spr_mouthhitbox/spr_mouthhitbox.yy",
   },
   "spriteMaskId": null,
-  "visible": true,
+  "visible": false,
 }

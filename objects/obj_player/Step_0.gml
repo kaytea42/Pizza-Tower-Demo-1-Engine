@@ -76,6 +76,9 @@ with (obj_player) {
         case 39:
             scr_player_pizzathrow();
             break;
+        case 40:
+            scr_player_bossintro();
+            break;
         case 41:
             scr_player_gameover();
             break

@@ -75,7 +75,7 @@
             {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"f280b9c7-9dd8-49aa-85d2-634f221e09f5","path":"sprites/spr_shotgun_shot/spr_shotgun_shot.yy",},},},"Disabled":false,"id":"79f69a2f-3a01-455d-bd38-141d72a3fec9","IsCreationKey":false,"Key":9.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
-    "visibleRange": {"x":0.0,"y":0.0,},
+    "visibleRange": null,
     "volume": 1.0,
     "xorigin": 50,
     "yorigin": 50,

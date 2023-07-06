@@ -4,18 +4,20 @@ if (obj_player.state == 39) {
         framereset = 1;
     }
     sprite_index = spr_hungrypillar_mouth;
-    if (floor(image_index) == 3) image_speed = 0;
+    if (floor(image_index) == 3)
+		image_speed = 0;
 }
 else {
     framereset = 0;
-    if (sprite_index != spr_hungrypillar_angry) sprite_index = spr_hungrypillar;
+    if (sprite_index != spr_hungrypillar_angry)
+		sprite_index = spr_hungrypillar;
     image_speed = 0.35;
 }
 if (toppineaten == 5) sprite_index = spr_hungrypillar_happy;
 if (place_meeting((x + 1), y, obj_player) && (sprite_index != spr_hungrypillar_happy)) {
     obj_tv.message = "STEP BACK!!";
     obj_tv.showtext = 1;
-    obj_tv.tvsprite = 400;
+    obj_tv.tvsprite = spr_tvpillar;
     obj_tv.alarm[0] = 150;
     obj_tv.image_speed = 0.1;
     sprite_index = spr_hungrypillar_angry;

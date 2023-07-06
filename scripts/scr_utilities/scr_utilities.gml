@@ -26,3 +26,15 @@ function enemy_combo() {
     }
     global.combotime = 60;
 }
+
+function check_tilecollision(_tilemap) {
+	var _meeting = !!tilemap_get_at_pixel(_tilemap, bbox_right, bbox_top)
+	          +
+	          !!tilemap_get_at_pixel(_tilemap, bbox_right, bbox_bottom) * 2
+	          +
+	          !!tilemap_get_at_pixel(_tilemap, bbox_left, bbox_top) * 4
+	          +
+	          !!tilemap_get_at_pixel(_tilemap, bbox_left, bbox_bottom) * 8;
+
+	return _meeting;
+}

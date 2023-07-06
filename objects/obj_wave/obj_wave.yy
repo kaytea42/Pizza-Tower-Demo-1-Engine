@@ -1,13 +1,16 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_minipillar",
-  "eventList": [],
+  "name": "obj_wave",
+  "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
+  ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Gimmicks",
-    "path": "folders/Objects/Level Structure/Gimmicks.yy",
+    "name": "effects and particles",
+    "path": "folders/Objects/effects and particles.yy",
   },
   "parentObjectId": null,
   "persistent": false,

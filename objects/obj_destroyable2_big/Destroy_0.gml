@@ -1,0 +1,11 @@
+instance_create((x + 32), (y + 32), obj_bigcollect);
+instance_create((x + 32), (y + 32), obj_pizzadebris);
+instance_create((x + 32), (y + 32), obj_pizzadebris);
+instance_create((x + 32), (y + 32), obj_pizzadebris);
+instance_create((x + 32), (y + 32), obj_pizzadebris);
+instance_create((x + 32), (y + 32), obj_pizzadebris);
+instance_create((x + 32), (y + 32), obj_pizzadebris);
+instance_create((x + 32), (y + 32), obj_pizzadebris);
+instance_create((x + 32), (y + 32), obj_pizzadebris);
+tile_layer_delete_at(1, x, y);
+scr_sound(sound_hit);

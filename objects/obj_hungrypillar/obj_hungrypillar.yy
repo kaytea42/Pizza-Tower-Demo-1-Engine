@@ -12,10 +12,7 @@
     "name": "Enemies",
     "path": "folders/Objects/Level Structure/Enemies.yy",
   },
-  "parentObjectId": {
-    "name": "obj_wall",
-    "path": "objects/obj_wall/obj_wall.yy",
-  },
+  "parentObjectId": null,
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,

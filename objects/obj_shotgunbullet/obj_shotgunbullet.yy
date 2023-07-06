@@ -28,7 +28,10 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_shotgun_shot",
+    "path": "sprites/spr_shotgun_shot/spr_shotgun_shot.yy",
+  },
   "spriteMaskId": null,
   "visible": true,
 }

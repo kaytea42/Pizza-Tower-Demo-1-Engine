@@ -63,4 +63,4 @@ if (obj_player.state != 41)
 	    draw_sprite(spr_ammo, -1, 840, 480);
 	}
 }
-draw_set_blend_mode(0);
+draw_set_blend_mode(bm_normal);
