@@ -107,16 +107,6 @@ function scr_player_jump() {
 	    sprite_index = spr_player_facestomp;
 	if (fallinganimation >= 80)
 	    sprite_index = spr_player_freefall;
-	if (key_down2) && canPound
-	{
-	    if (shotgunAnim == 0)
-	    {
-	        image_index = 0;
-	        state = 77;
-	        sprite_index = spr_player_bodyslamstart;
-	        vsp = -6;
-	    }
-	}
 	if (stompAnim == 0)
 	{
 	    if (jumpAnim == 1)

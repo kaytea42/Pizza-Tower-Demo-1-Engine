@@ -19,6 +19,15 @@ with (obj_player) {
 		case 5:
 			scr_player_portal();
    			break;
+        case 6:
+            scr_player_secondjump();
+            break;
+        case 7:
+            scr_player_chainsawbump();
+            break;
+        case 8:
+            scr_player_handstandjump();
+            break;
         case 9:
             scr_player_gottreasure();
             break;
@@ -28,11 +37,35 @@ with (obj_player) {
         case 11:
             scr_player_knightpepattack();
             break;
+        case 12:
+            scr_player_meteorpep();
+            break;
         case 13:
             scr_player_bombpep();
             break;
+        case 14:
+            scr_player_grabbing();
+            break;
+        case 15:
+            scr_player_chainsawpogo();
+            break;
+        case 16:
+            scr_player_shotgunjump();
+            break;
         case 17:
             scr_player_stunned();
+            break;
+        case 18:
+            scr_player_highjump();
+            break;
+        case 19:
+            scr_player_chainsaw();
+            break;
+        case 20:
+            scr_player_facestomp();
+            break;
+        case 21:
+            scr_player_mach4();
             break;
         case 22:
             scr_player_timesup();
@@ -46,14 +79,23 @@ with (obj_player) {
 		case 25:
 			scr_player_pistol();
 			break;
+        case 26:
+            scr_player_machfreefall();
+            break;
         case 27:
             scr_player_throw();
+            break;
+        case 28:
+            scr_player_slam();
             break;
         case 29:
             scr_player_superslam();
             break;
         case 30:
             scr_player_skateboard();
+            break;
+        case 31:
+            scr_player_grind();
             break;
         case 32:
             scr_player_grab();
@@ -100,6 +142,9 @@ with (obj_player) {
 		case 47:
 			scr_player_comingoutdoor();
 			break;
+        case 48:
+            scr_player_smirk();
+            break;
 		case 49:
 			scr_player_Sjump();
 			break;
@@ -136,12 +181,42 @@ with (obj_player) {
 		case 60:
 			scr_player_freefall();
 			break;
+        case 61:
+            scr_player_hang();
+            break;
 		case 63:
 			scr_player_freefallland();
 			break;
 		case 64:
 			scr_player_door();
 			break;
+        case 65:
+            scr_player_barrelcrouch();
+            break;
+        case 66:
+            scr_player_barrelfloat();
+            break;
+        case 67:
+            scr_player_barrelmach2();
+            break;
+        case 68:
+            scr_player_barrelmach1();
+            break;
+        case 69:
+            scr_player_barrelfall();
+            break;
+        case 70:
+            scr_player_barrelnormal();
+            break;
+       case 71:
+            scr_player_barrelslipnslide();
+            break;
+        case 72:
+            scr_player_barrelroll();
+            break;
+        case 73:
+            scr_player_current();
+            break;
 		case 76:
 			scr_player_mach3();
 			break;

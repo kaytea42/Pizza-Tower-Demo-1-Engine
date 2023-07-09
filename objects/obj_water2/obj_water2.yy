@@ -8,8 +8,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Solids",
-    "path": "folders/Objects/Level Structure/Solids.yy",
+    "name": "Collision",
+    "path": "folders/Objects/Level Structure/Collision.yy",
   },
   "parentObjectId": null,
   "persistent": false,

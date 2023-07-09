@@ -1,0 +1,1 @@
+bumpeffect = 0;

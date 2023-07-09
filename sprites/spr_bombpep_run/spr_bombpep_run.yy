@@ -27,8 +27,8 @@
   "nineSlice": null,
   "origin": 4,
   "parent": {
-    "name": "Bomb Peppino",
-    "path": "folders/Sprites/Peppino sprites/Bomb Peppino.yy",
+    "name": "Bombpep",
+    "path": "folders/Sprites/Peppino sprites/Bombpep.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

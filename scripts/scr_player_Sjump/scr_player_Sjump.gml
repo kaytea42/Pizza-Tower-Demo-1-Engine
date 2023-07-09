@@ -34,7 +34,7 @@ function scr_player_Sjump(){
 	    }
 	    with (obj_baddie)
 	    {
-	        if point_in_rectangle(x, y, view_xport[0], view_yport[0], (view_xport[0] + view_wport[0]), (view_yport[0] + view_hview[0]))
+	        if point_in_rectangle(x, y, view_xport[0], view_yport[0], (view_xport[0] + view_wport[0]), (view_yport[0] + view_hport[0]))
 	        {
 	            image_index = 0;
 	            state = 79;

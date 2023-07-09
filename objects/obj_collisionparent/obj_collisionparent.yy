@@ -7,7 +7,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Parents",
-    "path": "folders/Objects/Level Structure/Solids/Parents.yy",
+    "path": "folders/Objects/Level Structure/Collision/Parents.yy",
   },
   "parentObjectId": null,
   "persistent": false,

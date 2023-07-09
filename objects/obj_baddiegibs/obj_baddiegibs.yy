@@ -29,7 +29,10 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_baddiegibs",
+    "path": "sprites/spr_baddiegibs/spr_baddiegibs.yy",
+  },
   "spriteMaskId": null,
   "visible": true,
 }

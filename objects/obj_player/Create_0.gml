@@ -91,12 +91,5 @@ with(obj_player)
     slaphand = 1;
     global.panic = 0;
 	shoot = 1;
-	tauntstoredstate = 0;
-	tauntstoredmovespeed = 19;
-	tauntstoredsprite = spr_player_idle;
 	slammed = 0;
-	
-	canTaunt = 0;
-	canPound = 0;
-	canShoot = 0;
 }

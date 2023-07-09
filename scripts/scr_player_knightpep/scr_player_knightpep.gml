@@ -46,7 +46,7 @@ function scr_player_knightpep(){
 	{
 	    with (obj_baddie)
 	    {
-	        if point_in_rectangle(x, y, view_xview[0], view_yview[0], (view_xview[0] + view_wview[0]), (view_yview[0] + view_hview[0]))
+	        if point_in_rectangle(x, y, view_xport[0], view_yport[0], (view_xport[0] + view_wport[0]), (view_yport[0] + view_hview[0]))
 	        {
 	            vsp = -7;
 	            hsp = 0;
