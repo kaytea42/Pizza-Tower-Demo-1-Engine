@@ -25,7 +25,7 @@
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"cb8258e5-e2a5-4fcb-a932-a140bf264ee1","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
-  "origin": 4,
+  "origin": 9,
   "parent": {
     "name": "with cigar",
     "path": "folders/Sprites/level structure/enemies/Sausageman/with cigar.yy",
@@ -64,7 +64,7 @@
     "visibleRange": null,
     "volume": 1.0,
     "xorigin": 50,
-    "yorigin": 50,
+    "yorigin": 45,
   },
   "swatchColours": null,
   "swfPrecision": 2.525,

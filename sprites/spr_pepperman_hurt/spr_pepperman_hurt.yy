@@ -26,7 +26,7 @@
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"25f8fd75-d622-42ae-8d80-63e67eca81c5","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
-  "origin": 4,
+  "origin": 9,
   "parent": {
     "name": "The Perfect Pepper",
     "path": "folders/Sprites/level structure/enemies/The Perfect Pepper.yy",
@@ -66,7 +66,7 @@
     "visibleRange": null,
     "volume": 1.0,
     "xorigin": 100,
-    "yorigin": 100,
+    "yorigin": 95,
   },
   "swatchColours": null,
   "swfPrecision": 2.525,
