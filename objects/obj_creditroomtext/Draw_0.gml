@@ -12,4 +12,5 @@ draw_text_transformed(460, 224, "NITROSPARXX", 0.6, 0.6, 0);
 draw_text_transformed(460, 256, "POST ELVIS", 0.6, 0.6, 0);
 draw_text_transformed(460, 288, "HUD RECREATIONS BY LERP32", 0.6, 0.6, 0);
 draw_text_transformed(460, 320, "DECOMPILED BY KATIE_TF2", 0.6, 0.6, 0);
-draw_text_transformed(460, 352, "PRESS START AND SELECT RETRY TO GO BACK TO THE TITLE SCREEN", 0.6, 0.6, 0);
+draw_text_transformed(460, 352, "EXTRA HELP BY LUIGIO", 0.6, 0.6, 0);
+draw_text_transformed(460, 384, "PRESS START AND SELECT RETRY TO GO BACK TO THE TITLE SCREEN", 0.6, 0.6, 0);
