@@ -6,6 +6,6 @@ Pizza Tower's 2018 Halloween demo decompiled.
 - Properly credit:
 -    The original developers of this Pizza Tower demo
 -    The decompilation collaborators (Dr. Engineer, Fito, and Luigio) for decompilation
--    Me (Katie_TF2) for decompilation
+-    Me (kaytea42) for decompilation
 
 Have fun modding the first Pizza Tower demo!! ^.^
