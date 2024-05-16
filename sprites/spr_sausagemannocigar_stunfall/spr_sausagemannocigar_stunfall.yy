@@ -25,7 +25,7 @@
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"f53b58bd-8d95-4571-9cd6-63122607e2df","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
-  "origin": 4,
+  "origin": 9,
   "parent": {
     "name": "with no cigar",
     "path": "folders/Sprites/level structure/enemies/Sausageman/with no cigar.yy",
@@ -64,7 +64,7 @@
     "visibleRange": null,
     "volume": 1.0,
     "xorigin": 50,
-    "yorigin": 50,
+    "yorigin": 45,
   },
   "swatchColours": null,
   "swfPrecision": 2.525,
